@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from "react";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Index from "./components/Index";
+import Resume from "./components/Resume"
+import Portfolio from "./components/Portfolio";
+import Contacts from "./components/Contacts";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Router>
+     <CssBaseline/>
+        <Switch>
+        <React.Fragment>
+            <Route exact path="/" component={Index}/>
+            <Route path="/resume" component={Resume}/>
+            <Route path="/portfolio" component={Portfolio}/>
+            <Route path="/contacts" component={Contacts}/>
+            </React.Fragment>
+        </Switch>
+        </Router> 
+  )
+};
 
 export default App;
